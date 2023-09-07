@@ -4,8 +4,6 @@
 /**
  * main - Entry point of the program
  *
- * Description: Prints the specified message to the standard error.
- *
  * Return: Always 1 (error)
  */
 int main(void)
