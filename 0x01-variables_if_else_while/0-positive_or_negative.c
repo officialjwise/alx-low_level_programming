@@ -14,7 +14,7 @@ int main(void)
 	/* Generate a random number and store it in 'n' */
 	n = rand() - RAND_MAX / 2;
 	/* Print the number and its sign */
-	printf("The number %d is", n);
+	printf("%d is", n);
 	if (n > 0)
 	{
 		printf(" positive\n");
