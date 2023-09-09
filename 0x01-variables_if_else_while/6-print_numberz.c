@@ -5,7 +5,11 @@
  */
 int main(void)
 {
-putchar(48); /* 48 is the ASCII code for '0' */
-putchar(10); /* 10 is the ASCII code for a newline character */
+int digit;
+for (digit = 0; digit <= 9; digit++)
+{
+putchar(digit + '0');
+}
+putchar('\n');
 return (0);
 }
