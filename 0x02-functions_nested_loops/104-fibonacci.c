@@ -14,8 +14,9 @@ printf("%lu", low);
 }
 
 /**
-* main - printing first 98 fibonacci sequence
-* Return: 0
+* main - Prints the first 98 Fibonacci numbers separated by commas and spaces.
+*
+* Return: Always 0.
 */
 int main(void)
 {
