@@ -17,13 +17,13 @@ if (column == 0)
 {
 _putchar('0');
 _putchar(',');
-_putchar(' ');
+_putchar('');
 }
 else
 {
-_putchar(' ');
+_putchar('');
 if (result < 10)
-_putchar(' ');
+_putchar('');
 else
 _putchar((result / 10) + '0');
 
