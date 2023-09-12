@@ -1,8 +1,8 @@
 #include "main.h"
 
 /**
-* times_table - Prints the 9 times table starting with 0
-*/
+ * times_table - Prints the 9 times table starting with 0
+ */
 void times_table(void)
 {
 int row, column, result;
@@ -18,11 +18,16 @@ _putchar('0');
 else
 _putchar(',');
 
-/* Print the result with proper formatting using dots */
+/* Print the result with proper formatting using two spaces */
 if (result < 10)
+{
 _putchar(' ');
+_putchar(' ');
+}
 else
+{
 _putchar((result / 10) + '0');
+}
 
 _putchar((result % 10) + '0');
 }
