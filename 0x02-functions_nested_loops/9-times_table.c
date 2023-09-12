@@ -1,35 +1,12 @@
-#include "main.h"
-
-/**
- * times_table - Prints the 9 times table starting with 0
- */
-void times_table(void)
-{
-int row, column, result;
-
-for (row = 0; row <= 9; row++)
-{
-for (column = 0; column <= 9; column++)
-{
-result = row * column;
-
-if (column == 0)
-_putchar('0');
-else
-_putchar(',');
-
-/* Print the result with proper formatting using two spaces */
-if (result < 10)
-{
-_putchar(' ');
-_putchar(' ');
-}
-else
-{
-_putchar((result / 10) + '0');
-}
-
-_putchar((result % 10) + '0');
+#include <stdio.h>
+void times_table(void) {
+int i, j;
+char separator;
+separator = ',';
+for (i = 0; i <= 9; i++) {
+for (j = 0; j <= 9; j++) {
+_putchar(i < 10 ? i + '0' : separator);
+_putchar(i * j + '0');
 }
 _putchar('\n');
 }
