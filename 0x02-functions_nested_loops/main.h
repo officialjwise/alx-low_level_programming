@@ -2,4 +2,4 @@
 #define MAIN_H
 /* Function prototype for _putchar */
 int _putchar(char c);
-#endif/* MAIN_H */
+#endif /* MAIN_H */
