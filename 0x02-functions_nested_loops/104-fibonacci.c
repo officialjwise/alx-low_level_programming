@@ -1,46 +1,39 @@
 #include <stdio.h>
-#include <gmp.h>
 
 /**
-* main - main block
-* Description: first 98 Fibonacci numbers, starting with 1 and 2
-* followed by a new line.
-* Return: 0
-*/
+ * print_large_number - Prints a large number that may exceed 1 billion.
+ * @high: The high part of the number (divided by 1 billion).
+ * @low: The low part of the number (modulo 1 billion).
+ */
+void print_large_number(unsigned long high, unsigned long low)
+{
+	if (high > 0)
+		printf("%lu%lu", high, low);
+	else
+		printf("%lu", low);
+}
+
+/**
+ * main - printing first 98 fibonacci sequence
+ * Return: 0
+ */
 int main(void)
 {
-int i = 0;
-mpz_t a, b, next;
+	unsigned long int current = 1;
+	unsigned long int next = 2;
+	int i;
 
-// Initialize the mpz_t variables
-mpz_init_set_ui(a, 0); // a = 0
-mpz_init_set_ui(b, 1); // b = 1
-mpz_init(next); // next = 0
+	printf("%lu, ", current);
 
-while (i < 98)
-{
-// next = a + b
-mpz_add(next, a, b);
+	for (i = 2; i < 98; i++)
+	{
+		print_large_number(0, next);
+		if (i < 97)
+			printf(", ");
+		next += current;
+		current = next - current;
+	}
+	printf("\n");
 
-// a = b
-mpz_set(a, b);
-
-// b = next
-mpz_set(b, next);
-
-// Print next
-gmp_printf("%Zd", next);
-
-if (i < 97)
-printf(", ");
-i++;
-}
-putchar('\n');
-
-// Clear the mpz_t variables
-mpz_clear(a);
-mpz_clear(b);
-mpz_clear(next);
-
-return (0);
+	return (0);
 }
