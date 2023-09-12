@@ -1,36 +1,40 @@
 #include "main.h"
 
 /**
- * times_table - Prints the 9 times table starting with 0
+ * times_table - prints the 9 times table starting with 0
+ * Return: 0 if success
  */
+
 void times_table(void)
 {
-int row, column, result;
+	int row, column, result;
 
-for (row = 0; row <= 9; row++)
-{
-for (column = 0; column <= 9; column++)
-{
-result = row * column;
+	for (row = 0; row <= 9; row++)
+	{
+		for (column = 0; column <= 9; column++)
+		{
+			result = row * column;
+			if (column == 0)
+			{
+				_putchar('0' + result);
+			}
+			else if (result < 10)
+			{
+				_putchar(' ');
+				_putchar('0' + result);
+			}
+			else
+			{
+				_putchar('0' + result / 10);
+				_putchar('0' + result % 10);
+			}
 
-if (column == 0)
-_putchar('0');
-else if (result < 10)
-_putchar(' '); /* Add a space for single-digit results */
-else
-_putchar((result / 10) + '0'); /* Print the tens digit */
-
-_putchar((result % 10) + '0'); /* Print the ones digit */
-
-if (column < 9)
-{
-_putchar(','); /* Print a comma */
-_putchar(' '); /* Print a space */
-}
-else
-{
-_putchar('\n'); /* Print a newline at the end of each row */
-}
-}
-}
+			if (column < 9)
+			{
+				_putchar(',');
+				_putchar(' ');
+			}
+		}
+		_putchar('\n');
+	}
 }
