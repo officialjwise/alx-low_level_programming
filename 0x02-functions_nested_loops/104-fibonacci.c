@@ -10,7 +10,7 @@ void print_large_number(unsigned long high, unsigned long low)
 	if (high > 0)
 		printf("%lu%lu", high, low);
 	else
-		printf("%d", low);
+		printf("%lu", low);
 }
 
 /**
