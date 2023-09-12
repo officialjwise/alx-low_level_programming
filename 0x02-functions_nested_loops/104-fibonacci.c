@@ -1,26 +1,29 @@
+#include "main.h"
 #include <stdio.h>
+
 /**
- * main - main block
- * Description: first 98 Fibonacci numbers, starting with 1 and 2
- * followed by a new line.
- * Return: 0
+ * print_fibonacci - Prints the first 98 Fibonacci numbers
  */
+void print_fibonacci(void)
+{
+unsigned long int a = 1, b = 2, next;
+int count;
+
+printf("%lu, %lu", a, b);
+
+for (count = 3; count <= 98; count++)
+{
+next = a + b;
+printf(", %lu", next);
+a = b;
+b = next;
+}
+
+printf("\n");
+}
+
 int main(void)
 {
-	int i = 0;
-	unsigned long int a = 0, b = 1, next = 0;
-
-	while (i < 98)
-	{
-		next = a + b;
-		a = b;
-		b = next;
-		printf("%lu", next);
-
-		if (i < 97)
-			printf(", ");
-		i++;
-	}
-	putchar('\n');
-	return (0);
+print_fibonacci();
+return (0);
 }
