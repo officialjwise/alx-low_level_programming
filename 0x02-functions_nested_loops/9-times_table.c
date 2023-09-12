@@ -13,11 +13,6 @@ for (column = 0; column <= 9; column++)
 {
 result = row * column;
 
-if (column == 0)
-_putchar('0');
-else
-_putchar(',');
-
 /* Print the result with proper formatting using dots */
 if (result < 10)
 _putchar(' ');
