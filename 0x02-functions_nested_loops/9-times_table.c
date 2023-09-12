@@ -18,7 +18,6 @@ if (column == 0)
 _putchar('0');
 _putchar(',');
 } else
-}
 {
 _putchar(' ');
 if (result < 10)
