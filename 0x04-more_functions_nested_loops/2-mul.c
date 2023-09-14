@@ -1,17 +1,12 @@
 #include "main.h"
-#include <stdio.h>
 /**
- * main - check the code
+ * mul - Multiplies two integers
+ * @a: First integer
+ * @b: Second integer
  *
- * Return: Always 0.
+ * Return: The product of a and b
  */
-int main(void)
+int mul(int a, int b)
 {
-    char c;
-
-    c = '0';
-    printf("%c: %d\n", c, _isdigit(c));
-    c = 'a';
-    printf("%c: %d\n", c, _isdigit(c));
-    return (0);
+    return (a * b);
 }
