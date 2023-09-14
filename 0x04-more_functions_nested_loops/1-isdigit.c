@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #include "main.h"
 
 /**
@@ -10,3 +11,6 @@ int _isdigit(int c)
 {
 	return (c >= 48 && c <= 57);
 }
+=======
+
+>>>>>>> dcc1c2619d0e1b06fa940bd76dff15c2c57abe50
