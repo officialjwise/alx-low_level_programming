@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #include "main.h"
 
 /**
@@ -12,3 +13,6 @@ int mul(int a, int b)
 	return (a * b);
 }
 
+=======
+
+>>>>>>> 5118ff342e48527f8287d942d247c39f3eff63e0
