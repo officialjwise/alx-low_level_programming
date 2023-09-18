@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #include "main.h"
 /**
  * _strcpy - Copies a string including the null byte from src to dest.
@@ -21,3 +22,6 @@ src++;
 
 return dest_start;
 }
+=======
+
+>>>>>>> 46b3e9e60f325b1914a619f57255d3822602e2e8
