@@ -1,13 +1,15 @@
 #include <stdio.h>
+
 /**
- * main - print name of program
- * @argc: argument counter
- * @argv: pointer to array of arguments
- * Return: 0 on success
- */
-int main(int argc, char *argv[])
+*main - Print the name of the file
+*@argc: argument count
+*@argv: argument variable
+*
+*Return: Success
+*/
+
+int main(int argc __attribute__((unused)), char *argv[])
 {
-	if (argc > 0)
-		printf("%s\n", argv[0]);
+	printf("%s\n", argv[0]);
 	return (0);
 }
