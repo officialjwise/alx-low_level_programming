@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /**
-*main - Print the name of the file
+*main - Printing the name of the file
 *@argc: argument count
 *@argv: argument variable
 *
