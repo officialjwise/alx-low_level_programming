@@ -2,35 +2,28 @@
 #include "main.h"
 
 /**
- * array_range - create array of integers
- * @start: start range from 
- * @end: end range at
- * Return: Pointer to array
+ * _calloc - allocate memory and set all values to 0
+ * @nmemb: size
+ * @size: sizeof(datatype)
+ * Return: pointer to calloc'd string
  */
 
-int *array_range(int start, int end)
+void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	int *ptr;
-	int i;
-	int n = (end - start + 1);
+	void *ptr;
+	unsigned int i;
 
-	if (start > end)
-	{
+	if (nmemb <= 0 || size <= 0)
 		return (NULL);
-	}
 
-	/* Let's check for error using malloc */
-	ptr = malloc(sizeof(int) * n);
+	/* allocate memory and check if there's an error */
+	ptr = malloc(nmemb * size);
 	if (ptr == NULL)
-	{
 		return (NULL);
-	}
-	
-	/* setting the range values */
-	for (i = 0; i < n; i++)
-	{
-		ptr[i] = start++;
-	
+
+	/* set allocated memory values to 0 */
+	for (i = 0; i < nmemb * size; i++)
+		*((char *)ptr + i) = 0;
+
 	return (ptr);
-	}
 }
