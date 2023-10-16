@@ -1,49 +1,50 @@
-#include <stdlib.h>
 #include "dog.h"
 
-int _strlen(char *str);
-char *_strcopy(char *dest, char *src);
-dog_t *new_dog(char *name, float age, char *owner);
 
 /**
-* len - find length of string
-* @str: string
-* Return: length
+*_strlen - returns length of
+*a string
+*@str: string to be counted
+*Return: returns length of string
 */
 int _strlen(char *str)
 {
-int i;
-
-while (*str++)
+int len = 0;
+while (str)
 len++;
 
 return (len);
 }
+
+
 /**
-* strcopy - copies the string pointed to by src,
-* including the terminating null byte (\0),
-* to the buffer pointed to by dest
-* @dest: copy source to this buffer
-* @src: this is the source to copy
-* Return: copy of original source
+*_strcopy - copy string pointed by src
+*into dest variable
+*@dest:buffer storing string copy
+*@src: buffer storing string to copy
+*Return:returns copied string
 */
-char *strcopy(char *dest, char *src)
+char *_strcopy(char *dest, char *src)
 {
 int index = 0;
 
-for (index = 0; src[index]; index++)
+for (; src[index] ; index++)
 dest[index] = src[index];
 
 dest[index] = '\0';
-
 return (dest);
 }
+
+
+
+
 /**
-* new_dog - create new instance of struct dog
-* @name: member
-* @age: member
-* @owner: member
-* Return: initialized instance of struct dog
+*new_dog - creates a new dog
+*@name: name of new dog
+*@age: age of new dog
+*@owner: owner of new dog
+*Return: returns NULL in case
+*of failure
 */
 dog_t *new_dog(char *name, float age, char *owner)
 {
