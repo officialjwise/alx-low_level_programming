@@ -1,0 +1,1 @@
+Structure type definitions
