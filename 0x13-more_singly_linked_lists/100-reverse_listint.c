@@ -16,12 +16,12 @@ listint_t *reverse_listint(listint_t **head)
 	prev = NULL;
 	while (*head != NULL)
 	{
-		next = (*head)->next; /* keep track of next node to move to */
-		(*head)->next = prev; /* link current node's ptr to prev node */
-		prev = *head; /* update previous node to be current node */
-		*head = next; /* move current node to next node */
+		next = (*head)->next;
+		(*head)->next = prev;
+		prev = *head;
+		*head = next;
 	}
-	(*head) = prev; /* unlink last element from null and point backwards */
+	(*head) = prev;
 
 	return (*head);
 }
