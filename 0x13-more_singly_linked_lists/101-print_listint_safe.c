@@ -1,81 +1,94 @@
 #include "lists.h"
 
 /**
- * print_listint_safe - prints a linked list and checks for a loop
- * @head: a pointer to the start of the list
- *
- * Return: the number of nodes in the list
+ * count_nodes_till_loop - count nodes to know how many unique nodes to print
+ * @head: pointer to head pointer of linked lists
+ * Return: number of unique nodes in list before a loop
+ */
+int count_nodes_till_loop(const listint_t *head)
+{
+	int count = 0;
+	const listint_t *turtle, *hare;
+
+	turtle = hare = head;
+
+	while (turtle != NULL && hare != NULL)
+	{
+		turtle = turtle->next;
+		hare = hare->next->next;
+		count++;
+
+		if (turtle == hare)
+		{
+			turtle = head;
+			while (turtle != hare)
+			{
+				turtle = turtle->next;
+				hare = hare->next;
+				count++;
+			}
+			return (count);
+		}
+	}
+	return (0);
+}
+/**
+ * loop - find if there's a loop in linked list
+ * @head: pointer to head pointer of linked list
+ * Return: 0 if no loop, 1 if loop
+ */
+int loop(const listint_t *head)
+{
+	const listint_t *turtle, *hare;
+
+	turtle = hare = head;
+
+	while (turtle != NULL && hare != NULL)
+	{
+		turtle = turtle->next;
+		hare = hare->next->next;
+
+		if (turtle == hare)
+			return (1);
+	}
+	return (0);
+}
+/**
+ * print_listint_safe - prints list with addresses
+ * @head: pointer to head pointer of linked list
+ * Return: number of nodes in list, exit(98) if failed
  */
 size_t print_listint_safe(const listint_t *head)
 {
-	size_t node_count, i;
-	/* an array of listint_t nodes */
-	const listint_t **visited_nodes = NULL;
+	int count = 0;
+	int loop_found;
+	size_t num_nodes = 0;
+	const listint_t *tmp;
 
 	if (head == NULL)
-	{
-		return (0); /* the list is already empty */
-	}
+		exit(98);
 
-	node_count = 0;
-	while (head != NULL)
+	loop_found = loop(head);
+
+	if (loop_found == 1) /* print upto last node before loop if loop */
 	{
-		for (i = 0; i < node_count; i++)
+		count = count_nodes_till_loop(head);
+		for (loop_found = 0; loop_found < count; loop_found++)
 		{
-			/*
-			 * check if the current node has been visited already
-			 * it could be a possible loop candidate
-			 */
-			if (head == visited_nodes[i])
-			{
-				printf("-> [%p] %d\n", (void *)head, head->n);
-				free(visited_nodes);
-				return (node_count);
-			}
+			printf("[%p] %d\n", (void *)tmp, tmp->n);
+			num_nodes += 1;
+			tmp = tmp->next;
 		}
-
-		node_count++;
-
-		/* keeps track of the nodes visited so far */
-		visited_nodes = append_to_list(visited_nodes, node_count, head);
-
-		/* print current node's information */
-		printf("[%p] %d\n", (void *)head, head->n);
-
-		head = head->next;
 	}
-
-	free(visited_nodes);
-	return (node_count);
-}
-
-/**
- * append_to_list - keeps track of all nodes visited in a linked list
- * @node_list: the old list to append to (contains the list of visited nodes)
- * @node_count: the number of nodes to append to the list
- * @new_node: the new node to append to the list
- *
- * Return: a pointer the new list of visited nodes
- */
-const listint_t **append_to_list(const listint_t **node_list,
-		size_t node_count, const listint_t *new_node)
-{
-	size_t i;
-	const listint_t **visited_nodes;
-
-	visited_nodes = malloc(node_count * sizeof(listint_t *));
-	if (visited_nodes == NULL)
+	else if (loop_found == 0) /* print regularly upto NULL if no loop */
 	{
-		exit(98); /* memory allocation failed */
+		tmp = head;
+		while (tmp != NULL)
+		{
+			printf("[%p] %d\n", (void *)tmp, tmp->n);
+			num_nodes += 1;
+			tmp = tmp->next;
+		}
 	}
-
-	/* append the nodes to the list */
-	for (i = 0; i < node_count - 1; i++)
-	{
-		visited_nodes[i] = node_list[i];
-	}
-	visited_nodes[i] = new_node; /* append the new node to the list */
-
-	free(node_list); /* free the previous memory */
-	return (visited_nodes);
+	return (num_nodes);
 }
